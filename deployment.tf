@@ -1,5 +1,3 @@
-
-
 resource "aws_codedeploy_app" "codedeploy_app" {
   compute_platform = "Server"
   name             = "web-server"

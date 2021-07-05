@@ -58,12 +58,6 @@ resource "aws_db_instance" "rds" {
   vpc_security_group_ids = [aws_security_group.rds.id]
 }
 
-// code deploy
-resource "aws_codedeploy_app" "deployapp" {
-  compute_platform = "Server"
-  name             = "deployapp"
-}
-
 output "public_ip" {
   value = aws_eip.web_ip.public_ip
 }
