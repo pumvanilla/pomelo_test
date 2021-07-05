@@ -8,6 +8,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node app.js"
+    "start": "node main.js"
   }
 }
