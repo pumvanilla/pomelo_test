@@ -86,9 +86,9 @@ initDatabase()
     
     
     app.listen(80, () => {
-      winston.log(`Example app listening at http://localhost:80`)
+      console.log(`Example app listening at http://localhost:80`)
     })
   })
   .catch((err) => {
-    winston.error(err)
+    console.error(err)
   })
