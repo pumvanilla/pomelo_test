@@ -1,13 +1,15 @@
-// const app = require('express')();
-
-// app.get('/', (req, res) => {
-//   res.send('Hello, World!\n');
-// });
-
-// app.listen(3000, '0.0.0.0');
-
 const config = require('./config.json')
 const psql = require('pg')
+const winston = require('winston')
+const WinstonCloudWatch = require('winston-cloudwatch');
+
+// aws-sdk will not set default region
+// config ~/.aws/credentials first
+winston.add(new WinstonCloudWatch({
+  logGroupName: 'test_terraform',
+  logStreamName: 'log_stream1',
+  awsRegion: 'ap-southeast-1'
+}));
 
 const client = new psql({
   user: config.rds_username.value,
@@ -19,7 +21,7 @@ const client = new psql({
 
 client.connect(err => {
   if (err) throw err;
-  console.log("DB connected!");
+  winston.log("DB connected!");
 })
 
 /* CREATE DB */
@@ -29,7 +31,7 @@ connection.query("CREATE DATABASE test_db", function (err, result) {
     return
   }
   
-  console.log("Database created");
+  winston.log("Database created");
 });
 
 
@@ -40,7 +42,7 @@ connection.query(sql, function (err, result) {
     winston.log('Cannot create table')
     return
   }
-  console.log("Table created");
+  winston.log("Table created");
 });
 
 
@@ -48,7 +50,7 @@ connection.query(sql, function (err, result) {
 var sql = "INSERT INTO users (email, firstName, lastName, age) VALUES ('johndoe@gmail.com', 'john', 'doe', 21)";
 connection.query(sql, function (err, result) {
   if (err) throw err;
-  console.log("1 record inserted");
+  winston.log("1 record inserted");
 });
 
 
@@ -75,5 +77,5 @@ app.get('/', (req, res) => {
 
 
 app.listen(80, () => {
-  console.log(`Example app listening at http://localhost:80`)
+  winston.log(`Example app listening at http://localhost:80`)
 })

@@ -1,13 +1,15 @@
 {
-  "dependencies": {
-    "express": "4.17.1",
-    "pg": "^8.6.0"
-  },
   "name": "web",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "pg": "^8.6.0",
+    "winston": "^3.3.3",
+    "winston-cloudwatch": "^2.5.2"
   }
 }

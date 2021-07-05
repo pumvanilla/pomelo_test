@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/web/
+    destination: /home/ec2-user/app/
 hooks:
   AfterInstall:
    - location: script/setup.sh
