@@ -18,7 +18,7 @@ const client = new Client({
   host: config.rds_hostname.value,
   port: config.rds_port.value,
   password: config.rds_password.value,
-  database: 'testdb',
+  database: 'postgres',
 }) 
 
 const initDatabase = async () => {
