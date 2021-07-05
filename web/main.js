@@ -22,6 +22,36 @@ client.connect(err => {
   console.log("DB connected!");
 })
 
+/* CREATE DB */
+connection.query("CREATE DATABASE test_db", function (err, result) {
+  if (err) {
+    winston.log('Cannot create DB')
+    return
+  }
+  
+  console.log("Database created");
+});
+
+
+/* CREATE TABLE */
+var sql = "CREATE TABLE users (email varchar,firstName varchar,lastName varchar,age int)";
+connection.query(sql, function (err, result) {
+  if (err) {
+    winston.log('Cannot create table')
+    return
+  }
+  console.log("Table created");
+});
+
+
+/* INSERT */
+var sql = "INSERT INTO users (email, firstName, lastName, age) VALUES ('johndoe@gmail.com', 'john', 'doe', 21)";
+connection.query(sql, function (err, result) {
+  if (err) throw err;
+  console.log("1 record inserted");
+});
+
+
 
 /* WEB SERVER */
 const express = require('express')
@@ -38,51 +68,6 @@ app.get('/', (req, res) => {
       res.json({
         result: 'ok',
         data: rows[0]
-      })
-    }
-  })
-})
-
-app.get('/createdb', (req, res) => {
-  client.query('CREATE DATABASE test_db', function (err, rows) {
-    if (err) {
-      res.json({
-        result: 'error',
-        message: 'unable to create database'
-      })
-    } else {
-      res.json({
-        result: 'ok'
-      })
-    }
-  })
-})
-
-app.get('/createtable', (req, res) => {
-  client.query("CREATE TABLE users (email varchar,firstName varchar,lastName varchar,age int)", function (err, rows) {
-    if (err) {
-      res.json({
-        result: 'error',
-        message: 'unable to create database'
-      })
-    } else {
-      res.json({
-        result: 'ok'
-      })
-    }
-  })
-})
-
-app.get('/insert', (req, res) => {
-  client.query("INSERT INTO users (email, firstName, lastName, age) VALUES ('johndoe@gmail.com', 'john', 'doe', 21)", function (err, rows) {
-    if (err) {
-      res.json({
-        result: 'error',
-        message: 'unable to create database'
-      })
-    } else {
-      res.json({
-        result: 'ok'
       })
     }
   })
