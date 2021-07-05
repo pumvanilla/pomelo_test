@@ -2,7 +2,6 @@ const config = require('./config.json')
 const { Client } = require('pg')
 const winston = require('winston')
 const WinstonCloudWatch = require('winston-cloudwatch');
-
 const express = require('express')
 
 // aws-sdk will not set default region
@@ -18,13 +17,15 @@ const client = new Client({
   host: config.rds_hostname.value,
   port: config.rds_port.value,
   password: config.rds_password.value,
-  database: 'test_db',
+  database: 'postgres',
 }) 
+
+const port = 8080
 
 const initDatabase = async () => {
   await client.connect()
 
-  // await client.query("CREATE DATABASE test_db")
+  await client.query("CREATE DATABASE test_db")
 
   await client.query("CREATE TABLE users (email varchar,firstName varchar,lastName varchar,age int)");
 
@@ -85,8 +86,8 @@ initDatabase()
     })
     
     
-    app.listen(80, () => {
-      console.log(`Example app listening at http://localhost:80`)
+    app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`)
     })
   })
   .catch((err) => {
