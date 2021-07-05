@@ -18,13 +18,13 @@ const client = new Client({
   host: config.rds_hostname.value,
   port: config.rds_port.value,
   password: config.rds_password.value,
-  database: 'postgres',
+  database: 'test_db',
 }) 
 
 const initDatabase = async () => {
   await client.connect()
 
-  await client.query("CREATE DATABASE test_db")
+  // await client.query("CREATE DATABASE test_db")
 
   await client.query("CREATE TABLE users (email varchar,firstName varchar,lastName varchar,age int)");
 
