@@ -2,9 +2,14 @@
 set -ex
 sudo yum update
 sudo yum install -y httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-echo "<h1>Hello from Terraform</h1>" | sudo tee /var/www/html/index.html
+# sudo systemctl start httpd
+# sudo systemctl enable httpd
+# echo "<h1>Hello from Terraform</h1>" | sudo tee /var/www/html/index.html
+
+wget https://aws-codedeploy-ap-southeast-1.s3.ap-southeast-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent start
 
 sudo amazon-linux-extras install docker -y
 sudo service docker start
