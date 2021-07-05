@@ -127,11 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-main-key.pem
-file1.bak
-.terraform/providers/registry.terraform.io/hashicorp/aws/3.48.0/darwin_amd64/terraform-provider-aws_v3.48.0_x5
+
+
+.terraform/
 workspace.code-workspace
 .terraform.lock.hcl
 terraform.tfstate
+*.pem
+*.bak
 *.backup
-.terraform/modules/modules.json
+terraform.tfstate.backup
