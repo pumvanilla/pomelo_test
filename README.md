@@ -1,5 +1,5 @@
 # Architecture
-![Test Image](https://github.com/pumvanilla/terraform_testarchitecture.png)
+![Test Image](https://github.com/pumvanilla/terraform_test/blob/main/image1.jpg)
 
 ## AWS key
 ```
