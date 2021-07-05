@@ -138,3 +138,7 @@ terraform.tfstate
 *.backup
 terraform.tfstate.backup
 .terraform.tfstate.lock.info
+
+# node
+node_modules/
+config.json

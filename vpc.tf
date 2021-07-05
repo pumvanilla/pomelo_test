@@ -84,13 +84,13 @@ resource "aws_route_table_association" "subrt" {
 }
 
 # network interface
-resource "aws_network_interface" "web-server-nic" {
-  subnet_id       = aws_subnet.public-subnet-1.id
-  private_ips     = ["10.0.1.50"]
-  security_groups = [aws_security_group.web_traffic.id]
-}
+// resource "aws_network_interface" "web-server-nic" {
+//   subnet_id       = aws_subnet.public-subnet-1.id
+//   private_ips     = ["10.0.1.50"]
+//   security_groups = [aws_security_group.web_traffic.id]
+// }
 
-# db subnet
+# db subnet b
 resource "aws_db_subnet_group" "db-subnet" {
   name       = "db-subnet-group"
   subnet_ids = [aws_subnet.private-subnet-a.id, aws_subnet.private-subnet-b.id]

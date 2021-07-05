@@ -6,6 +6,7 @@ provider "aws" {
 # web server
 resource "aws_instance" "web" {
   ami = "ami-018c1c51c7a13e363"
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
   // ami = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
   subnet_id = aws_subnet.public-subnet-1.id
@@ -15,6 +16,12 @@ resource "aws_instance" "web" {
   tags = {
 	  Name = "web server"
   }
+}
+
+// set role profile
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "ec2-profile"
+  role = aws_iam_role.ec2_role.name
 }
 
 # elastic ip

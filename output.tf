@@ -16,5 +16,6 @@ output "rds_username" {
 output "rds_password" {
   description = "RDS instance root password"
   value       = aws_db_instance.rds.password
+  sensitive = true
 }
 
