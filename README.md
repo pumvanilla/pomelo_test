@@ -1,5 +1,5 @@
 # Architecture
-![Test Image](http://image1.jpg)
+![Test Image](https://github.com/pumvanilla/terraform_test/blob/main/image1.jpg)
 
 ## AWS key
 ```
@@ -53,7 +53,7 @@ and show data from rdb
 ```
 ### Example output
 
-![alt text](http://example_output.png)
+![alt text](https://github.com/pumvanilla/terraform_test/blob/main/example_output.png)
 
 
 # Build & Deploy
