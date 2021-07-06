@@ -9,7 +9,11 @@ const express = require('express')
 winston.add(new WinstonCloudWatch({
   logGroupName: 'my-app',
   logStreamName: 'log_stream1',
-  awsRegion: 'ap-southeast-1'
+  awsConfig: {
+    aws_access_key_id: 'AKIA3BCVXP2G3PRO5344',
+    aws_secret_access_key: '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',
+    region: 'ap-southeast-1'
+  },
 }));
 
 const client = new Client({

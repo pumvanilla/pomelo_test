@@ -54,3 +54,11 @@ and show data from rdb
 ### Example output
 
 ![alt text](http://example_output.png)
+
+
+# Build & Deploy
+
+```
+Infrastructure by TerraformCloud
+Web by Github action
+```
