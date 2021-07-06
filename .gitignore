@@ -141,4 +141,3 @@ terraform.tfstate.backup
 
 # node
 node_modules/
-config.json

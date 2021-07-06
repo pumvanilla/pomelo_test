@@ -1,0 +1,22 @@
+{
+  "rds_hostname": {
+    "sensitive": false,
+    "type": "string",
+    "value": "my-first-rds.ci3fah62dqsb.ap-southeast-1.rds.amazonaws.com"
+  },
+  "rds_password": {
+    "sensitive": false,
+    "type": "string",
+    "value": "hashicorp"
+  },
+  "rds_port": {
+    "sensitive": false,
+    "type": "number",
+    "value": 5432
+  },
+  "rds_username": {
+    "sensitive": false,
+    "type": "string",
+    "value": "pomelo"
+  }
+}

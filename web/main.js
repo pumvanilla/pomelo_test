@@ -70,7 +70,7 @@ initDatabase()
     const app = express()
 
     app.get('/', (req, res) => {
-      client.query('SELECT * FROM users', function (err, rows) {
+      client.query('SELECT * FROM users', function (err, res) {
         if (err) {
           res.json({
             result: 'error',
@@ -79,7 +79,7 @@ initDatabase()
         } else {
           res.json({
             result: 'ok',
-            data: rows[0]
+            data: res.rows
           })
         }
       })
