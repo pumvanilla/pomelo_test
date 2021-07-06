@@ -63,7 +63,7 @@ Web by Github action
 
 ### TODO
 ```
+- deploy terraform and app in sequence
 - complete centralized logging
 - build & deploy app by docker
-- deploy terraform and app in sequence
 ```
