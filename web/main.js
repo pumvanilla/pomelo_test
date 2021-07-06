@@ -6,11 +6,11 @@ const express = require('express')
 
 // aws-sdk will not set default region
 // config ~/.aws/credentials first
-// winston.add(new WinstonCloudWatch({
-//   logGroupName: 'my-app',
-//   logStreamName: 'log_stream1',
-//   awsRegion: 'ap-southeast-1'
-// }));
+winston.add(new WinstonCloudWatch({
+  logGroupName: 'my-app',
+  logStreamName: 'log_stream1',
+  awsRegion: 'ap-southeast-1'
+}));
 
 const client = new Client({
   user: config.rds_username.value,
