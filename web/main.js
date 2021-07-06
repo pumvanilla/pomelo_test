@@ -9,6 +9,8 @@ const express = require('express')
 winston.add(new WinstonCloudWatch({
   logGroupName: 'my-app',
   logStreamName: 'log_stream1',
+  createLogGroup: false,
+  createLogStream: true,
   awsConfig: {
     aws_access_key_id: 'AKIA3BCVXP2G3PRO5344',
     aws_secret_access_key: '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',
@@ -76,11 +78,13 @@ initDatabase()
     app.get('/', (req, res) => {
       client.query('SELECT * FROM users', function (err, res) {
         if (err) {
+          winston.error("unable to query database");
           res.json({
             result: 'error',
             message: 'unable to query database'
           })
         } else {
+          winston.log("query database completely");
           res.json({
             result: 'ok',
             data: res.rows
