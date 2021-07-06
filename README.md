@@ -52,13 +52,18 @@ access web through eip
 and show data from rdb
 ```
 ### Example output
-
 ![alt text](https://github.com/pumvanilla/terraform_test/blob/main/example_output.png)
 
-
-# Build & Deploy
+### Build & Deploy
 
 ```
 Infrastructure by TerraformCloud
 Web by Github action
+```
+
+### TODO
+```
+- complete centralized logging
+- build & deploy app by docker
+- deploy terraform and app in sequence
 ```
