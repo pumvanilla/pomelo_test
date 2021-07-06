@@ -46,7 +46,7 @@ resource "aws_instance" "api" {
 resource "aws_db_instance" "rds" {
   name                   = "myDB"
   identifier             = "my-first-rds"
-  instance_class         = "db.t2.micro"
+  instance_class         = "db.t3.micro"
   engine                 = "postgres"
   engine_version         = "13.1"
   username               = "pomelo"
